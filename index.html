@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="java.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text">
+        <h1>Tic-Tac-Toe</h1>
+        <p>Have some fun trying to beat the computer!</p>
+      </div>
+      <div class="game">
+        <div class="winning-screen hidden">
+          <p class="winning-text"></p>
+          <button onclick="playAgain()">Play again!</button>
+        </div>
+        <div class="game-start">
+          <div class="game-text">
+            <p>Choose your marker:</p>
+          </div>
+          <div class="game-btns">
+            <button type="submit" class="x-symbol" data-marker="X">
+              <svg class="x-symbol" viewBox="0 -960 960 960">
+                <path
+                  d="M291-267.69 267.69-291l189-189-189-189L291-692.31l189 189 189-189L692.31-669l-189 189 189 189L669-267.69l-189-189-189 189Z"
+                />
+              </svg>
+            </button>
+            <button type="submit" class="circle-symbol" data-marker="O">
+              <svg class="circle-symbol" viewBox="0 -960 960 960">
+                <path
+                  d="M479.76-136q-70.79 0-133.45-27.04-62.66-27.04-109.45-73.82-46.78-46.79-73.82-109.45Q136-408.97 136-479.76q0-71.64 27.16-134.23 27.17-62.58 73.72-109.13t109.41-73.72Q409.14-824 479.75-824q71.47 0 134.15 27.16 62.67 27.17 109.22 73.72t73.72 109.13Q824-551.4 824-479.76q0 70.79-27.16 133.56-27.17 62.77-73.72 109.32-46.55 46.55-109.13 73.72Q551.4-136 479.76-136Zm.24-71.69q113.46 0 192.88-79.43 79.43-79.42 79.43-192.88t-79.43-192.88Q593.46-752.31 480-752.31t-192.88 79.43Q207.69-593.46 207.69-480t79.43 192.88q79.42 79.43 192.88 79.43Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="board">
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+        </div>
+      </div>
+      <p class="author">mueller</p>
+    </div>
+    <dialog id="dialog">
+      <div class="dialog-text">
+        <p>Choose your marker:</p>
+      </div>
+      <div class="dialog-btns">
+        <button type="submit" class="x-symbol" onclick="closeDialog()">
+          <svg class="x-symbol" viewBox="0 -960 960 960">
+            <path
+              d="M291-267.69 267.69-291l189-189-189-189L291-692.31l189 189 189-189L692.31-669l-189 189 189 189L669-267.69l-189-189-189 189Z"
+            />
+          </svg>
+        </button>
+        <button type="submit" class="circle-symbol" onclick="closeDialog()">
+          <svg class="circle-symbol" viewBox="0 -960 960 960">
+            <path
+              d="M479.76-136q-70.79 0-133.45-27.04-62.66-27.04-109.45-73.82-46.78-46.79-73.82-109.45Q136-408.97 136-479.76q0-71.64 27.16-134.23 27.17-62.58 73.72-109.13t109.41-73.72Q409.14-824 479.75-824q71.47 0 134.15 27.16 62.67 27.17 109.22 73.72t73.72 109.13Q824-551.4 824-479.76q0 70.79-27.16 133.56-27.17 62.77-73.72 109.32-46.55 46.55-109.13 73.72Q551.4-136 479.76-136Zm.24-71.69q113.46 0 192.88-79.43 79.43-79.42 79.43-192.88t-79.43-192.88Q593.46-752.31 480-752.31t-192.88 79.43Q207.69-593.46 207.69-480t79.43 192.88q79.42 79.43 192.88 79.43Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>
