@@ -37,6 +37,7 @@ const GameController = (() => {
   let player1, player2;
   let currentPlayer;
   let gameOver = false;
+  let isLocked = false;
 
   const startGame = (userMarker) => {
     Gameboard.reset();
@@ -51,6 +52,12 @@ const GameController = (() => {
     }
   };
 
+  const userPlayTurn = (index) => {
+  if (gameOver || isLocked) return;
+  isLocked = true;
+  playTurn(index);
+};
+
   const playTurn = (index) => {
     if (gameOver) return;
 
@@ -59,6 +66,7 @@ const GameController = (() => {
         return runComputerTurn();
       } else {
         alert("Slot taken!");
+        isLocked = false;
         return;
       }
     }
@@ -68,6 +76,7 @@ const GameController = (() => {
     if (checkWin()) return;
 
     if (checkTie()) return;
+
 
     switchTurn();
   };
@@ -159,9 +168,10 @@ const GameController = (() => {
     if (randomIndex === null) return;
 
     currentPlayer = player2;
-
+  
     setTimeout(() => {
       playTurn(randomIndex);
+      isLocked = false;
     }, 300);
   };
 
@@ -182,11 +192,13 @@ const GameController = (() => {
   const resetGame = () => {
     Gameboard.reset();
     gameOver = false;
+    isLocked = false;
     renderBoard();
   };
 
   return {
     startGame,
+    userPlayTurn,
     playTurn,
     checkWin,
     checkTie,
@@ -201,7 +213,7 @@ const GameController = (() => {
 
 document.querySelectorAll(".slot").forEach((slot, index) => {
   slot.addEventListener("click", () => {
-    GameController.playTurn(index);
+    GameController.userPlayTurn(index);
   });
 });
 
